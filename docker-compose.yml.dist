@@ -1,0 +1,15 @@
+# Web node
+web:
+  hostname: web
+  build: .
+  restart: always
+  ports:
+    - "80"
+    - "443"
+    # Use IP based mapping when working with multiple projects. See docs (^^) for more details.
+    #- 192.168.10.11:80:80
+    #- 192.168.10.11:443:443
+  volumes:
+    - "/var/docker/YOUR_SITE:/app"
+  environment:
+    - VIRTUAL_HOST=www.YOUR_SITE.com,YOUR_SITE.com
